@@ -1,0 +1,206 @@
+{
+    "coin": "ZephyrT",
+    "symbol": "ZEP",
+    "coinUnits": 1000000000,
+    "coinDifficultyTarget": 90,
+
+    "logging": {
+        "files": {
+            "level": "info",
+            "directory": "logs",
+            "flushInterval": 5
+        },
+        "console": {
+            "level": "debug",
+            "colors": true
+        }
+    },
+
+    "poolServer": {
+        "enabled": true,
+        "clusterForks": "auto",
+        "poolAddress": "ZEPHjRfWvoFFihfPK9nKdpa7cuXZGRZKrSbQRujHfwFyPty8DdSxiUjTLHhjYVZ4ubfaqLySfqcGgADfbthuAZpsZabmDcDVGKD",
+        "blockRefreshInterval": 1000,
+        "minerTimeout": 900,
+        "sslKey": "key.pem",
+        "sslCert": "cert.pem",
+        "allowedMinerAddressPrefixes": [
+          "4020416", "3481408"
+        ],
+        "ports": [
+            {
+                "port": 4444,
+                "difficulty": 2000,
+                "desc": "Low end hardware"
+            },
+            {
+                "port": 5555,
+                "difficulty": 10000,
+                "desc": "Mid range hardware"
+            },
+            {
+                "port": 6666,
+                "difficulty": 20000,
+                "desc": "High end hardware"
+            },
+            {
+                "port": 7777,
+                "difficulty": 20000,
+                "desc": "High end hardware (SSL protected)",
+                "type": "SSL"
+            },
+            {
+                "port": 8888,
+                "difficulty": 100000,
+                "desc": "Mining rigs"
+            },
+            {
+                "port": 9999,
+                "difficulty": 400000,
+                "desc": "NiceHash port"
+            }
+        ],
+        "varDiff": {
+            "minDiff": 2000,
+            "maxDiff": 20000000,
+            "targetTime": 90,
+            "retargetTime": 60,
+            "variancePercent": 30,
+            "maxJump": 100
+        },
+        "fixedDiff": {
+            "enabled": true,
+            "addressSeparator": "."
+        },
+        "shareTrust": {
+            "enabled": true,
+            "min": 10,
+            "stepDown": 3,
+            "threshold": 10,
+            "penalty": 30
+        },
+        "banning": {
+            "enabled": true,
+            "time": 600,
+            "invalidPercent": 55,
+            "checkThreshold": 30
+        }
+    },
+
+    "payments": {
+        "enabled": true,
+        "interval": 600,
+        "maxAddresses": 500,
+        "mixin": 12,
+        "transferFee": 10000000,
+        "minPayment": 2000000000,
+        "maxTransactionAmount": 500000000000,
+        "denomination": 10000000,
+        "useDynamicTransferFee": true,
+        "transferFeePerPayee": 4000000,
+        "minerPayFee": true,
+        "blockReward": 90
+    },
+
+    "blockUnlocker": {
+        "enabled": true,
+        "interval": 30,
+        "depth": 60,
+        "poolFee": 1,
+        "devDonation": 0,
+        "coreDevDonation": 0,
+        "extraFeaturesDevDonation":0
+    },
+
+    "api": {
+        "enabled": true,
+        "hashrateWindow": 600,
+        "updateInterval": 20,
+        "port": 8118,
+        "blocks": 30,
+        "payments": 30,
+        "password": "your_password",
+        "trust_proxy_ip": false
+    },
+
+    "daemon": {
+        "host": "127.0.0.1",
+        "port": 44044
+    },
+
+    "wallet": {
+        "host": "127.0.0.1",
+        "port": 55555
+    },
+
+    "redis": {
+        "host": "127.0.0.1",
+        "port": 6379
+    },
+
+    "email": {
+      "enabled": false,
+      "api_key": "",
+      "api_domain": "mg.yourdomain",
+      "from_address": "",
+      "template_dir": "email_templates",
+      "domain": "pool.domain.here"
+    },
+
+    "monitoring": {
+        "daemon": {
+            "checkInterval": 60,
+            "rpcMethod": "getblockcount"
+        },
+        "wallet": {
+            "checkInterval": 60,
+            "rpcMethod": "getbalance"
+        }
+    },
+
+    "charts": {
+        "pool": {
+            "hashrate": {
+                "enabled": true,
+                "updateInterval": 60,
+                "stepInterval": 1800,
+                "maximumPeriod": 86400
+            },
+            "workers": {
+                "enabled": true,
+                "updateInterval": 60,
+                "stepInterval": 1800,
+                "maximumPeriod": 86400
+            },
+            "difficulty": {
+                "enabled": true,
+                "updateInterval": 1800,
+                "stepInterval": 10800,
+                "maximumPeriod": 604800
+            },
+            "price": {
+                "enabled": true,
+                "updateInterval": 1800,
+                "stepInterval": 10800,
+                "maximumPeriod": 604800
+            },
+            "profit": {
+                "enabled": true,
+                "updateInterval": 1800,
+                "stepInterval": 10800,
+                "maximumPeriod": 604800
+            }
+        },
+        "user": {
+            "hashrate": {
+                "enabled": true,
+                "updateInterval": 180,
+                "stepInterval": 1800,
+                "maximumPeriod": 86400
+            },
+            "payments": {
+                "enabled": true
+            }
+        }
+    }
+}
